@@ -1,3 +1,7 @@
+"use client";
+
+import React from 'react';
+
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import { useRouter } from 'next/navigation'; // Added for navigation
@@ -20,7 +24,7 @@ const geistMono = Geist_Mono({
 // Agent Detail Page Component
 // The [agentId] in the path indicates a dynamic route parameter.
 export default function AgentDetailPage({ params }: { params: { agentId: string } }) {
-  const agentId = params.agentId;
+  const agentId = React.use(params).agentId;
   const router = useRouter(); // Initialize router
 
   // In a real application, you would fetch agent details based on agentId here.
@@ -64,7 +68,7 @@ export default function AgentDetailPage({ params }: { params: { agentId: string 
   };
 
   return (
-    <div className="min-h-screen flex flex-col p-4">
+    <div className="min-h-screen flex flex-col p-4" suppressHydrationWarning={true}>
       <section className="py-16 px-4 max-w-5xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Agent Image */}

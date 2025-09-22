@@ -1,32 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import { useRouter } from 'next/navigation'; // Added for navigation
-import { useState } from 'react'; // useState is used
-
-// Styles
-import "./globals.css";
-
-// Font definitions
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// Metadata
-// export const metadata = {
-//   title: "Agentes de Automação IA",
-//   description: "Encontre e automatize suas tarefas com agentes de IA.",
-// };
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 // Main component
-export default function HomePage() {
+export default function HomePageClient() {
   const [searchTerm, setSearchTerm] = useState('');
   const router = useRouter(); // Initialize router
 
